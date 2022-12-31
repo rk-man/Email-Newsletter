@@ -1,0 +1,12 @@
+{% extends 'main.html' %}
+
+{% load static %}
+{% block content %}
+<main class="main">
+    <form class="form" method="POST">
+        {% csrf_token %}
+        <h3>Are you sure you wanna delete <span style="color:var(--primary-color)">"{{content.title}}"</h3></span>
+        <button type="submit" class="btn btn-primary btn-large">Delete</button>
+    </form>
+</main>
+{% endblock content %}

@@ -1,0 +1,48 @@
+<div class="newsletter">
+    {% if name and email %}
+    <div class="newsletter-confirmation">
+        <h3>Hey there, please confirm your subscription</h3>
+        <p>Check your inbox at {{ email }}</p>
+    </div>
+    {% else %}
+    <form class="form" action="/" method="POST">
+        {% csrf_token %}
+        <div class="form-field">
+            <label for="name-input" class="form-label">What should I call you ?</label>
+            <input type="text" id="name-input" class="form-input" name="name" placeholder="ex : Robert" />
+        </div>
+        <div class="form-field">
+            <label for="email-input" class="form-label">Where should I send ?</label>
+            <input type="email" id="email-input" name="email" class="form-input" placeholder="ex : robert@gmail.com" />
+        </div>
+
+        <button type="submit" class="form-submit"><i class="fa-solid fa-paper-plane icon"></i>Subscribe</button>
+    </form>
+    {% endif %}
+
+    <div class="newsletter-second-col">
+        <div class="newsletter-second-col-content">
+            <h3>Let's being then,</h3>
+            <p class="newsletter-second-col-desc">A simple way to gain exciting knowledge in the field of tech</p>
+
+        </div>
+        <div class="newsletter-second-col-contact-details">
+
+            <p class="newsletter-second-col-contact-details-title">Reach out to me anytime!!</p>
+            <p class="newsletter-second-col-contact-details-item">
+                <i class="fa-brands fa-instagram"></i>
+                <a href="#" class="link contact-details-link">naveen.rk_</a>
+            </p>
+            <p class="newsletter-second-col-contact-details-item">
+                <i class="fa-brands fa-linkedin"></i>
+                <a href="#" class="link contact-details-link">Linkedin</a>
+            </p>
+            <p class="newsletter-second-col-contact-details-item">
+                <i class="fa-regular fa-globe"></i>
+                <a href="#" class="link contact-details-link">Portfolio</a>
+            </p>
+
+
+        </div>
+    </div>
+</div>

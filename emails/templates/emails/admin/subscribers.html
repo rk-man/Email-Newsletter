@@ -1,0 +1,21 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+<main class="main">
+    <div class="subscribers-header">
+        <h3>Here's a list of your subscribers</h3>
+        <p class="subscribers-header-total-subscribers"> {{total_subscribers}} subscribers</p>
+    </div>
+    <div class="subscribers-container">
+        {% for subscriber in subscribers %}
+        <div class="each-subscriber">
+            <p class="each-subscriber-info">Name : {{subscriber.name}}</p>
+            <p class="each-subscriber-info">Email : {{subscriber.email}}</p>
+            <p>Subscribed At : {{subscriber.createdAt}}</p>
+        </div>
+        <hr class="each-subscrber-line-break">
+        {% endfor %}
+    </div>
+</main>
+{% endblock content %}

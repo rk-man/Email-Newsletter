@@ -1,0 +1,30 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+<main class="main">
+    <form class="single-content-container" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h1>Create your content</h1>
+
+        <div class="form-field">
+            <label for="input-title" class="form-label">Content title</label>
+            <textarea id="input-title" name="title" cols="120" rows="3" required></textarea>
+        </div>
+
+        <div class="form-field">
+            <label for="input-description" class="form-label">Content description</label>
+            <textarea class="single-content-text-details-desc" rows="50" name="description" id="input-description"
+                required></textarea>
+        </div>
+
+
+        <div class="single-content-img-upload single-content-img-upload-while-creating">
+            <i class="fa-solid fa-image fa-6x image-icon"></i>
+            <input type="file" id="image-upload" name="coverImage" required />
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-large btn-flex"><i class="fa fa-sign-in"></i>Save</button>
+    </form>
+</main>
+{% endblock content %}

@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #8f00ff;
+}
+html {
+    font-size: 62.5%;
+}
+body {
+    font-family: "Quicksand", sans-serif;
+    line-height: 1.3;
+    font-weight: 500;
+}
+h1 {
+    font-size: 4rem;
+}
+
+h2 {
+    font-size: 3.2rem;
+}
+h3 {
+    font-size: 2.4rem;
+}
+p {
+    font-size: 1.6rem;
+}
+
+button {
+    font-size: 1.4rem;
+}
+
+.link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.icon {
+    color: var(--primary-color);
+    width: 2rem;
+    height: 2rem;
+}
+
+.btn {
+    font-weight: 600;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    padding: 0.4rem 1.6rem;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    border: 0.2rem solid var(--primary-color);
+}
+
+.btn-primary-large {
+    font-size: 1.8rem;
+}
+
+.btn-primary:hover {
+    background: transparent;
+    color: var(--primary-color);
+}
+
+.main {
+    width: 100rem;
+    min-height: 80rem;
+    margin: 8rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+/* EMAIL */
+.email-confirmation-container {
+    width: 80rem;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 2rem;
+    gap: 2rem;
+}
+
+.email-confirmation-message {
+    font-size: 2rem;
+    font-weight: 600;
+}

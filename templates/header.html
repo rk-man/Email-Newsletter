@@ -1,0 +1,25 @@
+{% load static %}
+
+
+{% if "me" in path %}
+<header class="header header-2">
+    <a class="link" href="{% url 'admin-dashboard' %}">
+        <h3>Email Newsletter - Admin</h3>
+    </a>
+    <div class="btn-container">
+        <a class="link" href="{% url 'all-subscribers' %}">
+            <button class="btn btn-subscribers">Subscribers</button>
+        </a>
+        <a class="link" href="{% url 'admin-logout' %}">
+            <button class="btn btn-logout">Logout</button>
+        </a>
+    </div>
+</header>
+{% else %}
+<header class="header">
+    <a class="link" href="/">
+        <h3>Email Newsletter</h3>
+    </a>
+</header>
+{% endif %}
+</header>

@@ -1,0 +1,39 @@
+{% extends 'main.html' %}
+
+{% load static %}
+{% block content %}
+<main class="main">
+    <h2 style="margin-bottom: 4rem;">Hello there, Admin</h2>
+    <div class="content-container">
+        <a href="{% url 'create-content' %}" class="each-content each-content-add">
+            <i class="fa-regular fa-circle-plus fa-4x plus-icon"></i>
+            <p>Add new content</p>
+
+        </a>
+
+        {% for eachContent in content %}
+        <div class="each-content">
+            <a href="{% url 'single-content' eachContent.id %}" class="link">
+                <div class="each-content-img-wrapper">
+                    <img src="{{ eachContent.coverImage.url }}" alt="{{ eachContent.title }}"
+                        class="each-content-img" />
+                </div>
+            </a>
+
+
+
+            <div class="each-content-text-details">
+                <a href="{% url 'single-content' eachContent.id %}" class="link">
+                    <p class="each-content-title">{{eachContent.title}}</p>
+                </a>
+                {% if eachContent.description|length|get_digit:"-1" > 99 %}
+                <p>{{ eachContent.description | slice:":100" }}...</p>
+                {% else %}
+                <p>{{ eachContent.description }}</p>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</main>
+{% endblock content %}

@@ -1,0 +1,48 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+<main class="main">
+    <div class="btns-container" style="margin-bottom: 4rem;">
+        <a href="{% url 'delete-content' content.id %}">
+            <button class="btn btn-primary btn-large">Delete Content</button>
+        </a>
+        <a href="{% url 'send-mail' content.id %}">
+            <button class="btn btn-secondary btn-large">Send Mail</button>
+        </a>
+    </div>
+    <form class="single-content-container" method="POST" action="/me/dashboard/{{content.id}}/"
+        enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="single-content-img-upload-wrapper">
+            <div class="single-content-img-upload">
+                <i class="fa-solid fa-image fa-6x image-icon"></i>
+                <input type="file" id="image-upload" name="coverImage" />
+            </div>
+            <div class="single-content-img-wrapper">
+                <img src="{{ content.coverImage.url }}" alt="{{ content.title }}" class="single-content-img" />
+            </div>
+        </div>
+
+
+
+        <div class="form-field">
+            <label for="input-title" class="form-label">Content title</label>
+            <textarea id="input-title" name="title" cols="120" rows="3">{{ content.title }}</textarea>
+        </div>
+
+        <div class="form-field">
+            <label for="input-description" class="form-label">Content description</label>
+            <textarea class=" single-content-text-details-desc" rows="50" name="description"
+                id="input-description">{{ content.description }}</textarea>
+        </div>
+
+
+        <div class="btns-container">
+            <button class="btn btn-primary btn-large" type="submit">Save Changes</button>
+            <button class="btn btn-secondary btn-large">Reset Changes</button>
+
+        </div>
+    </form>
+</main>
+{% endblock content %}

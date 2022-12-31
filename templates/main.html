@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Email Newsletter</title>
+        <link rel="stylesheet" href="{% static 'css/global.css' %}" />
+        <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+        <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
+        <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
+        <script src="{% static 'fontawesomefree/js/fontawesome.js' %}"></script>
+        <script src="{% static 'fontawesomefree/js/solid.js' %}"></script>
+        <script src="{% static 'fontawesomefree/js/brands.js' %}"></script>
+        <script defer src="{% static 'js/alert.js' %}"></script>
+    </head>
+
+    <body>
+
+        {% include "header.html" %}
+
+
+
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert--{{message.tags}}">
+            <p class="alert__message">{{message}}</p>
+        </div>
+        {% endfor %}
+        {% endif %}
+
+        {% block content %}
+        {% endblock content %}
+
+        <!-- <footer></footer> -->
+    </body>
+
+</html>

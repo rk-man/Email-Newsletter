@@ -1,0 +1,27 @@
+{% extends 'main_mail.html' %}
+
+{% block content %}
+<div
+    style="width: 90%; font-family: 'Quicksand', sans-serif !important; margin: 0 auto; padding: 0.4rem; line-height: 1.2 !important; ">
+
+    <!-- the below image field would work, only with live images, so it has been commented for now -->
+    <!-- <div style="width:60% !important; height:50rem !important; margin: 0 auto !important;">
+        <img src="http://localhost:8000/reinvent_GSziVIU.jpg" alt="{{content.title}}"
+            style="width: 100% !important; height: 100% !important; object-fit: cover !important;" />
+    </div> -->
+    <p style="font-weight: 600; color:black !important; margin-bottom: 0.1rem !important;">
+        {{current_time}}
+    </p>
+    <p style="font-size: 2rem; font-weight: 700 !important; color:#8f00ff; margin-bottom: 0.1rem !important;">
+        {{content.title}}
+    </p>
+
+    <div
+        style="color:black !important;font-size: 1.2rem !important; font-weight: 500 !important; line-height: 1.3 !important;">
+        <p>
+            {{content.description|linebreaks}}
+        </p>
+    </div>
+
+</div>
+{% endblock content %}

@@ -1,0 +1,14 @@
+{% extends 'main.html' %}
+
+{% load static %}
+{% block content %}
+<main class="main">
+    <form class="form" method="POST">
+        {% csrf_token %}
+        <h3 style="text-align: center;">Are you sure you wanna send <span
+                style="color:var(--primary-color)">"{{content.title}}"</h3></span>
+        <p>Your mail will be sent on {{current_time}}</p>
+        <button type="submit" class="btn btn-primary btn-large">Send</button>
+    </form>
+</main>
+{% endblock content %}

@@ -1,0 +1,17 @@
+{% extends 'main_mail.html' %}
+
+{% block content %}
+<div style="width: 80%; margin: 0 auto; padding: 1rem;">
+    <p style="font-size: 1rem; font-weight: 500;">Hello there {{name}}, Thanks for signing up. Click the link below to
+        confirm your subscription and you'll be
+        on your way</p>
+
+    <a href="{{email_url}}">
+        <button
+            style="cursor:pointer; font-weight:600; border-radius: 0.4rem; cursor: pointer; padding: 0.4rem 1.6rem; background-color: #8f00ff; color: white; border:0.2rem solid #8f00ff; font-size: 1rem;"
+            class="hello">
+            Confirm your subscription
+        </button>
+    </a>
+</div>
+{% endblock content %}

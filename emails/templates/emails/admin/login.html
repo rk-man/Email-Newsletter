@@ -1,0 +1,22 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+<main class="main">
+    <form class="form admin-form" method="POST" action="/me/">
+        {% csrf_token %}
+        <h1>If you think you are an admin, please login</h1>
+
+        <div class="form-field">
+            <label for="email-input" class="form-label">What's your email ?</label>
+            <input type="email" id="email-input" name="email" class="form-input" placeholder="ex : robert@gmail.com" />
+        </div>
+        <div class="form-field">
+            <label for="password-input" class="form-label">What's your password ?</label>
+            <input type="password" id="password-input" class="form-input" name="password" placeholder="**********" />
+        </div>
+
+        <button type="submit" class="form-submit form-submit-admin"><i class="fa fa-sign-in"></i>Login</button>
+    </form>
+</main>
+{% endblock content %}
