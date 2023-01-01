@@ -161,6 +161,7 @@ input:focus {
     align-items: center;
     justify-content: center;
     gap: 4rem;
+    margin-bottom: 8rem;
 }
 
 .hero-section-content {
@@ -210,7 +211,7 @@ input:focus {
 
 /* newsletter */
 .newsletter {
-    width: 80%;
+    width: 100%;
     min-height: 30rem;
     background-color: var(--primary-color);
     padding: 4rem 2rem;
@@ -223,7 +224,7 @@ input:focus {
 }
 
 .newsletter-confirmation {
-    width: 80rem;
+    width: 100rem;
     height: 20rem;
     display: flex;
     align-items: center;
@@ -233,7 +234,7 @@ input:focus {
 }
 
 .form {
-    width: 80rem;
+    width: 100rem;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -373,7 +374,7 @@ input:focus {
 .content-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    width: 100%;
+    width: 90%;
     min-height: 10rem;
     align-items: center;
     justify-content: center;
@@ -462,9 +463,9 @@ input:focus {
     justify-content: flex-start;
     gap: 1rem;
     border: 0.3rem solid var(--primary-color);
-    border-bottom-width: 0;
     padding: 0.8rem 2rem;
     width: 100%;
+    margin-bottom: 2rem;
 }
 
 .single-content-img-upload-while-creating {
@@ -473,7 +474,7 @@ input:focus {
 
 .single-content-img-wrapper {
     width: 100%;
-    height: 50rem;
+    /* height: 100%; */
 }
 
 .single-content-img {
@@ -505,8 +506,14 @@ input:focus {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 2rem;
+}
+
+/* SENDING MAIL */
+.form-send-mail {
+    align-items: center;
+    justify-content: center;
 }
 
 /* SUBSCRIBERS */
@@ -625,6 +632,10 @@ input:focus {
 }
 
 @media only screen and (max-width: 69em) {
+    .main {
+        padding: 0 4rem;
+    }
+
     .content-container {
         width: 80%;
         grid-template-columns: 1fr 1fr;

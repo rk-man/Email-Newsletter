@@ -3,6 +3,9 @@
 
 {% block content %}
 <main class="main">
+    <a href="{% url 'admin-dashboard' %}" class="link" style="margin-bottom: 2rem;">
+        <button class="btn btn-primary btn-flex"><i class="fa fa-arrow-left" aria-hidden="true"></i>Dashboard</button>
+    </a>
     <div class="subscribers-header">
         <h3>Here's a list of your subscribers</h3>
         <p class="subscribers-header-total-subscribers"> {{total_subscribers}} subscribers</p>

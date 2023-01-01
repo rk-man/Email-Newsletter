@@ -102,7 +102,7 @@ def subscribeUser(req):
 
 def loginAdmin(req):
     context = {
-        "path" : req.path
+        "path": req.path
     }
 
     if (req.user.is_authenticated):
@@ -122,19 +122,18 @@ def loginAdmin(req):
 
         if (user is not None):
             login(req, user)
-            messages.success(req,"😎 Admin logged in successfully")
+            messages.success(req, "😎 Admin logged in successfully")
             return redirect('admin-dashboard')
         else:
-            messages.error(req,"😣 username or password is incorrect")
+            messages.error(req, "😣 username or password is incorrect")
             return redirect('admin-login')
-
 
     return render(req, 'emails/admin/login.html', context)
 
 
 @login_required(login_url='admin-login')
 def adminDashboard(req):
-   
+
     context = {}
 
     try:
@@ -151,17 +150,15 @@ def adminDashboard(req):
 
 @login_required(login_url='admin-login')
 def getSingleContent(req, pk):
-       
+
     context = {}
     content = None
     try:
         content = Content.objects.get(id=pk)
         print(content.coverImage)
     except:
-        return render(req, "notFound.html",context)
+        return render(req, "notFound.html", context)
 
-
-    
     if (req.method == "POST"):
         try:
             form = ContentForm(req.POST, req.FILES, instance=content)
@@ -184,7 +181,7 @@ def getSingleContent(req, pk):
 
 @login_required(login_url='admin-login')
 def createContent(req):
-       
+
     context = {}
 
     if (req.method == "POST"):
@@ -200,21 +197,22 @@ def createContent(req):
     context["path"] = req.path
     return render(req, 'emails/admin/create_content.html', context)
 
+
 @login_required(login_url='admin-login')
-def deleteContent(req,pk):
-       
+def deleteContent(req, pk):
+
     context = {}
     try:
-        content = Content.objects.get(id = pk)
+        content = Content.objects.get(id=pk)
     except:
         return render(req, "notFound.html", context)
     print(content)
 
     context = {
-        "content":content
+        "content": content
     }
 
-    if(req.method == "POST"):
+    if (req.method == "POST"):
         try:
             content.delete()
             return redirect("admin-dashboard")
@@ -223,29 +221,29 @@ def deleteContent(req,pk):
     context["path"] = req.path
     return render(req, 'delete.html', context)
 
+
 @login_required(login_url='admin-login')
-def sendMailContent(req,pk):  
+def sendMailContent(req, pk):
     context = {}
-    
+
     try:
-        content = Content.objects.get(id = pk)
+        content = Content.objects.get(id=pk)
         content.coverImage = f"http://localhost:8000/images/{content.coverImage}"
-        context = {"content":content}
+        context = {"content": content}
     except:
         return render(req, "notFound.html", context)
 
-    if(req.method == "POST"):
+    if (req.method == "POST"):
         try:
-        
+
             context["current_time"] = datetime.now()
             subject = "Hey there, check out the new one!!!"
             html_message = render_to_string(
-                    'emails/content_emails/sending_content.html', context)
+                'emails/sending_content.html', context)
             plain_message = strip_tags(html_message)
 
-
             profiles = Profile.objects.all()
-          
+
             for profile in profiles:
                 send_mail(
                     subject,
@@ -263,14 +261,9 @@ def sendMailContent(req,pk):
             #     fail_silently=False
             # )
 
-  
-
             # message = EmailMultiAlternatives(subject,plain_message, settings.EMAIL_HOST_USER, emails)
             # message.attach_alternative(html_message,"text/html")
             # message.send()
-
-
-
 
             # send_mail(
             #     subject,
@@ -282,13 +275,12 @@ def sendMailContent(req,pk):
             # )
 
 #             to_be_sent = (subject,plain_message, settings.EMAIL_HOST_USER,emails)
-# 
+#
 #             send_mass_mail(
 #                 ((subject, plain_message,settings.EMAIL_HOST_USER, emails, html_message )),
 #                 fail_silently=False
 #             )
 
-            
             return redirect("admin-dashboard")
         except Exception as ex:
             print(ex)
@@ -297,21 +289,23 @@ def sendMailContent(req,pk):
     context["current_time"] = datetime.now()
     return render(req, 'send_mail.html', context)
 
+
 @login_required(login_url='admin-login')
 def getAllSubscribers(req):
     context = {}
-    
+
     try:
         subscribers = Profile.objects.all()
         context = {
-            "subscribers":subscribers,
-            "total_subscribers":subscribers.count()
+            "subscribers": subscribers,
+            "total_subscribers": subscribers.count()
         }
     except Exception as ex:
         pass
 
     context["path"] = req.path
     return render(req, 'emails/admin/subscribers.html', context)
+
 
 def logoutAdmin(req):
     logout(req)
