@@ -67,7 +67,7 @@ def subscribeUser(req):
                     return render(req, "alreadyRegistered.html", context)
 
                 confirmation_code = f"{email}{uuid.uuid4()}{uuid.uuid4()}{datetime.now()}"
-                emailUrl = f"http://localhost:8000/confirm-subscription/{confirmation_code}"
+                emailUrl = f"https://email-newsletter-production.up.railway.app/confirm-subscription/{confirmation_code}"
 
                 context = {
                     "name": name,
