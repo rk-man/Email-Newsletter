@@ -32,6 +32,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["email-newsletter-production.up.railway.app", "localhost:8000", "https://email-newsletter-production.up.railway.app"]
 
+CSRF_TRUSTED_ORIGINS = ['https://email-newsletter-production.up.railway.app',
+'email-newsletter-production.up.railway.app','http://localhost:8000']
+
 
 # Application definition
 
