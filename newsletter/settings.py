@@ -102,9 +102,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': env("DATABASE_NAME"),
         'USER': env("DATABASE_USER"),
-        'PASSWORD': '6OJwDUERmgSbaH2109pb',
-        'HOST':'containers-us-west-158.railway.app',
-        'PORT': '7803',
+        'PASSWORD': env('DATABASE_PASS'),
+        'HOST':env('DATABASE_HOST'),
+        'PORT': env("DATABASE_PORT"),
     }
 }
 
