@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-t^$xrtt8%1--&@j08xnao+78auk7jy6v(hc(_$)^d*ow=wdpk+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["email-newsletter-production.up.railway.app", "localhost:8000"]
+ALLOWED_HOSTS = ["email-newsletter-production.up.railway.app", "localhost:8000", "https://email-newsletter-production.up.railway.app"]
 
 
 # Application definition
